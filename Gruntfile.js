@@ -35,13 +35,23 @@ module.exports = function(grunt) {
     'src/renderers/webgl/sigma.webgl.edges.def.js',
     'src/renderers/webgl/sigma.webgl.edges.fast.js',
     'src/renderers/webgl/sigma.webgl.edges.arrow.js',
+    // bshambaugh: I added the the three lines below, because the files exist
+    'src/renderers/webgl/sigma.webgl.edges.thickLine.js',
+    'src/renderers/webgl/sigma.webgl.edges.thickLineCPU.js',
+    'src/renderers/webgl/sigma.webgl.edges.thickLineGPU.js',
     'src/renderers/canvas/sigma.canvas.labels.def.js',
     'src/renderers/canvas/sigma.canvas.hovers.def.js',
     'src/renderers/canvas/sigma.canvas.nodes.def.js',
     'src/renderers/canvas/sigma.canvas.edges.def.js',
-    'src/renderers/canvas/sigma.canvas.edges.dotCurve.js',
+    // bshambaugh: file not available
+//    'src/renderers/canvas/sigma.canvas.edges.dotCurve.js',
+    // bshambaugh: I added the file below because it exits
+    'src/renderers/canvas/sigma.canvas.edges.curve.js',
     'src/renderers/canvas/sigma.canvas.edges.arrow.js',
-    'src/renderers/canvas/sigma.canvas.edges.dotCurvedArrow.js',
+    // bshambaugh: file not available
+//    'src/renderers/canvas/sigma.canvas.edges.dotCurvedArrow.js',
+    // bshambaugh: I added the file below because it exists
+    'src/renderers/canvas/sigma.canvas.edges.curvedArrow.js',
     'src/renderers/canvas/sigma.canvas.edgehovers.def.js',
     'src/renderers/canvas/sigma.canvas.edgehovers.curve.js',
     'src/renderers/canvas/sigma.canvas.edgehovers.arrow.js',
@@ -163,7 +173,7 @@ module.exports = function(grunt) {
         dest: 'build/sigma.js'
       },
       require: {
-        src: npmJsFiles,
+        src: [npmJsFiles,pluginFiles],
         dest: 'build/sigma.require.js'
       }
     },
